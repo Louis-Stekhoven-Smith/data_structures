@@ -16,28 +16,23 @@ def partition(input_array, start, end):
     pivot_index = start
     for i in range(start, end):
         if input_array[i] <= pivot:
-            print('swapping')
-            print(input_array)
-            temp = input_array[i]
-            input_array[i] = input_array[pivot_index]
-            input_array[pivot_index] = temp
 
+            print('Swapping')
+            print(input_array)
+            input_array[i], input_array[pivot_index] = input_array[pivot_index], input_array[i]
             print(input_array)
 
             pivot_index += 1
 
-    print(pivot_index)
-    print('swap pivot')
+    print('Swap pivot')
     print(input_array)
-    temp = input_array[pivot_index]
-    input_array[pivot_index] = pivot
-    input_array[end] = temp
+    input_array[end], input_array[pivot_index] = input_array[pivot_index], pivot
+    print(input_array)
 
-    print(input_array)
     return pivot_index
 
 
-test = [2, 54, 4, 1, 9]
+test = [2, 54, 4, 1, 9, 10, 22]
 quick_sort(test, 0, len(test) - 1)
 
 print('Result')
