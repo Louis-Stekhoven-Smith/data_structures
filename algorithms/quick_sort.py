@@ -15,14 +15,20 @@ def partition(input_array, start, end):
 
     pivot_index = start
     for i in range(start, end):
-        if input_array[i] <= pivot:
+        if input_array[i] <=  pivot:
 
-            print('Swapping')
-            print(input_array)
-            input_array[i], input_array[pivot_index] = input_array[pivot_index], input_array[i]
-            print(input_array)
+            # Avoid unnecessary swaps
+            if(pivot_index is not i):
+                print('Swapping')
+                print(input_array[pivot_index])
+                print('with')
+                print(input_array[i])
+                print(input_array)
+                input_array[i], input_array[pivot_index] = input_array[pivot_index], input_array[i]
+                print(input_array)
 
             pivot_index += 1
+
 
     print('Swap pivot')
     print(input_array)
