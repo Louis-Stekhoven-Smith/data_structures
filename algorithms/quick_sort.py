@@ -19,21 +19,20 @@ def partition(input_array, start, end):
 
             # Avoid unnecessary swaps
             if(pivot_index is not i):
-                print('Swapping')
-                print(input_array[pivot_index])
-                print('with')
-                print(input_array[i])
-                print(input_array)
+                # print('Swapping')
+                # print(input_array[pivot_index])
+                # print('with')
+                # print(input_array[i])
+                # print(input_array)
                 input_array[i], input_array[pivot_index] = input_array[pivot_index], input_array[i]
-                print(input_array)
+                # print(input_array)
 
             pivot_index += 1
 
-
-    print('Swap pivot')
-    print(input_array)
+    #print('Swap pivot')
+    # print(input_array)
     input_array[end], input_array[pivot_index] = input_array[pivot_index], pivot
-    print(input_array)
+    # print(input_array)
 
     return pivot_index
 
