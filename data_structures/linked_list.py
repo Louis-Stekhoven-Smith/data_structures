@@ -7,16 +7,26 @@
 class linkedList(object):
 
 
-    def __init__(self, val):
+    def __init__(self, val = None):
 
-        self.head = node(val)
+        if(val is not None):
+            self.head = node(val)
+
+        else:
+            self.head = None
+
         self.tail = self.head
-
 
     # Add new node to the end of the list
     def add_node(self, val):
-        self.tail.nextNode =  node(val)
-        self.tail = self.tail.nextNode
+
+        if(self.head is None):
+            self.head = node(val)
+            self.tail = self.head
+
+        else:
+            self.tail.nextNode =  node(val)
+            self.tail = self.tail.nextNode
 
 
     # Removes node with given val
@@ -47,9 +57,32 @@ class linkedList(object):
             currentNode = currentNode.nextNode
 
 
+    def get_data(self):
+        content = ''
+        currentNode = self.head
+
+        if (currentNode is None):
+            return ''
+
+        # How you do a do while loop in python
+        # There is no do while in python
+        while (True):
+            content += (currentNode.val)
+            content += '\n'
+            currentNode = currentNode.nextNode
+
+            if (currentNode is None):
+                break
+
+        return content
+
+
     def __str__(self):
         content = ''
         currentNode = self.head
+
+        if(currentNode is None):
+            return ''
 
         # How you do a do while loop in python
         # There is no do while in python
@@ -71,11 +104,14 @@ class node(object):
         self.val = val
 
 
+'''
 
-
-list = linkedList('Head')
+list = linkedList()
 
 list.add_node('First')
+
+print(list)
+
 list.add_node('Second')
 list.add_node('Third')
 list.add_node('Fourth')
@@ -98,6 +134,13 @@ list.remove_node('doesnt exist')
 
 print(list)
 
+list.remove_node('First')
+list.remove_node('Third')
+
+print(list)
+
+list.add_node('Fourth')
+'''
 
 
 
