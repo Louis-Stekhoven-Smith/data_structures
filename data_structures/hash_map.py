@@ -1,25 +1,19 @@
 from data_structures.linked_list import linkedList
 
 class HashMap:
+
     hashMapSize = 16
 
     def __init__(self):
-
         self.array = []
-
         for i in range(0, self.hashMapSize):
             self.array.append(linkedList())
 
-
-    def add(self, input):
-
-        hashNumber =  hash(input)
-
-        print(hashNumber)
+    # TODO check if key already exists
+    def add(self, key, input):
+        hashNumber =  hash(key)
         index = hashNumber % self.hashMapSize
-        print(index)
-
-        self.array[index].add_node(input)
+        self.array[index].add_node(hash, key, input)
 
 
     @staticmethod
@@ -35,7 +29,7 @@ class HashMap:
         NotImplemented
 
 
-    def get(self):
+    def get(self, key):
         NotImplemented
 
 
@@ -43,34 +37,26 @@ class HashMap:
         output = ''
 
         for i in range(0, self.hashMapSize):
-            # output = self.array[i].get_data()
+            output += 'List '
             output += self.array[i].get_data()
+            output += '\n'
 
         return output
 
-test1 = 'asdf1234'
-test2 = 'asdf1234'
-test3 = 'asdf123'
-
-print(id(test1))
-print(id(test2))
-print(id(test3))
-
 hashmap = HashMap()
 
-hashmap.add('hello')
+hashmap.add('aKey', '1234')
 
 print(hashmap)
 
 
-hashmap.add('coolasdfawe')
-hashmap.add('asd33faa3fa')
-hashmap.add('q83578asdfasdfasd')
-hashmap.add('aaa')
+hashmap.add('another', '555')
+hashmap.add('thisIsOne', 'data')
+hashmap.add('test', 'more data')
+hashmap.add('aaa', 'okies')
+hashmap.add('aaa', 'yup')
+hashmap.add('aaa', 'numnum')
+hashmap.add('aaa', 'cool')
+
 
 print(hashmap)
-
-
-hashmap.add('aaa')
-hashmap.add('aaa')
-hashmap.add('aaa')

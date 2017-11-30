@@ -7,37 +7,37 @@
 class linkedList(object):
 
 
-    def __init__(self, val = None):
+    def __init__(self, hash = None, key = None, val = None):
 
-        if(val is not None):
-            self.head = node(val)
+        if(val is None):
+            self.head = None
 
         else:
-            self.head = None
+            self.head = node(hash, key, val)
 
         self.tail = self.head
 
     # Add new node to the end of the list
-    def add_node(self, val):
+    def add_node(self, hash, key, val):
 
         if(self.head is None):
-            self.head = node(val)
+            self.head = node(hash, key, val)
             self.tail = self.head
 
         else:
-            self.tail.nextNode =  node(val)
+            self.tail.nextNode =  node(hash, key, val)
             self.tail = self.tail.nextNode
 
 
     # Removes node with given val
-    def remove_node(self, val):
+    def remove_node(self, hash, key, val):
 
         currentNode = self.head
         lastNode = currentNode
 
         while(currentNode):
 
-            # Removes node unless
+
             if(currentNode.val is val):
 
                 currentNode.val = None
@@ -47,7 +47,6 @@ class linkedList(object):
                     self.head = currentNode.nextNode
                     break
 
-                # Remove node
                 else:
                     lastNode.nextNode = currentNode.nextNode
                     break
@@ -68,7 +67,7 @@ class linkedList(object):
         # There is no do while in python
         while (True):
             content += (currentNode.val)
-            content += '\n'
+            content += ' '
             currentNode = currentNode.nextNode
 
             if (currentNode is None):
@@ -99,9 +98,12 @@ class linkedList(object):
 
 class node(object):
 
-    def __init__(self,val):
+    def __init__(self,hash, key, val):
         self.nextNode = None
+        self.hash = hash
+        self.key = key
         self.val = val
+
 
 
 '''
